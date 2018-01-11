@@ -1,6 +1,6 @@
 const uuidv4 = require('uuid/v4')
 import { toBoolean } from './util.js'
-import AwesomeQRCode from 'awesome-qr'
+import AwesomeQRCode from './awesome-qr'
 export default {
   props: {
     text: {
@@ -69,7 +69,7 @@ export default {
     },
     callback: {
       type: Function,
-      default: function () {
+      default: function() {
         return undefined
       }
     },
