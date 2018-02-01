@@ -1,6 +1,6 @@
 {
   "name": "vue-qr",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "license": "MIT",
   "description": "The Vue 2.x component of Awesome-qr.js",
   "author": "Binaryify",
@@ -14,7 +14,13 @@
     "uuid": "^3.1.0",
     "vue": "^2.5.13"
   },
-  "keywords": ["vue-qr", "vue qr", "vue qrcode", "qr", "vue"],
+  "keywords": [
+    "vue-qr",
+    "vue qr",
+    "vue qrcode",
+    "qr",
+    "vue"
+  ],
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
@@ -54,5 +60,9 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "vue": "^2.5.13",
-    "vue-qr": "^1.2.5"
+    "vue-qr": "^1.2.7"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

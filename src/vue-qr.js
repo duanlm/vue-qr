@@ -92,10 +92,8 @@ export default {
       }
     }
   },
-  beforeMount() {
-    this.uuid = uuidv4()
-  },
   mounted() {
+    this.uuid = uuidv4()
     this.main()
   },
   methods: {
