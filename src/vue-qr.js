@@ -53,7 +53,7 @@ export default {
     },
     dotScale: {
       type: Number,
-      default: 0.35
+      default: 1
     },
     autoColor: {
       type: [Boolean, String],
@@ -131,9 +131,15 @@ export default {
         img.src = this.logoSrc
         return
       }
-      that.render()
+
+      const img = new Image()
+      img.crossOrigin = 'anonymous'
+      setTimeout(() => {
+        that.render()
+      }, 0)
     },
     render(img, logoImg) {
+      // console.log(img, logoImg)
       const that = this
       new AwesomeQRCode().create({
         text: that.text,
