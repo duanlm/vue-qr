@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      src: require('./assets/bg1.png'),
+      src: 'https://avatars3.githubusercontent.com/u/12221718?s=40&v=4',
       src2: require('./assets/avatar.png'),
       text: 'testtttt',
       testNumber: '0'
