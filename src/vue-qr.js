@@ -106,11 +106,11 @@ export default {
           logoImg.onload = function() {
             that.render(bgImg, logoImg)
           }
-          that.checkIsUrl(that.logoSrc) && (logoImg.crossOrigin = 'anonymous')
+          // that.checkIsUrl(that.logoSrc) && (logoImg.crossOrigin = 'anonymous')
           logoImg.src = that.logoSrc
         }
         // bgImg.crossOrigin = 'anonymous'
-        this.checkIsUrl(this.bgSrc) && (bgImg.crossOrigin = 'anonymous')
+        // this.checkIsUrl(this.bgSrc) && (bgImg.crossOrigin = 'anonymous')
         bgImg.src = this.bgSrc
         return
       }
@@ -119,7 +119,7 @@ export default {
         img.onload = function() {
           that.render(img)
         }
-        this.checkIsUrl(this.bgSrc) && (img.crossOrigin = 'anonymous')
+        // this.checkIsUrl(this.bgSrc) && (img.crossOrigin = 'anonymous')
         img.src = this.bgSrc
         return
       }
@@ -128,24 +128,24 @@ export default {
         img.onload = function() {
           that.render(undefined, img)
         }
-        this.checkIsUrl(this.logoSrc) && (img.crossOrigin = 'anonymous')
+        // this.checkIsUrl(this.logoSrc) && (img.crossOrigin = 'anonymous')
         // img.crossOrigin = 'anonymous'
         img.src = this.logoSrc
         return
       }
 
       const img = new Image()
-      img.crossOrigin = 'anonymous'
+      // img.crossOrigin = 'anonymous'
       setTimeout(() => {
         that.render()
       }, 0)
     },
-    checkIsUrl(path) {
-      if (path.substring(0, 4).toLowerCase() == 'http') {
-        return true
-      }
-      return false
-    },
+    // checkIsUrl(path) {
+    //   if (path.substring(0, 4).toLowerCase() == 'http') {
+    //     return true
+    //   }
+    //   return false
+    // },
     render(img, logoImg) {
       // console.log(img, logoImg)
       const that = this
