@@ -1143,7 +1143,12 @@ var AwesomeQRCode;
       var nCount = oQRCode.getModuleCount();
       var rawSize = _htOption.size;
       // 最终宽度和高度
-      var [widthAll, heightAll] = _htOption.sizes || [rawSize, rawSize];
+      var widthAll = rawSize,
+        heightAll = rawSize
+      if (_htOption.sizes) {
+        widthAll = _htOption.sizes[0]
+        heightAll = _htOption.sizes[1]
+      }
       var rawMargin = _htOption.margin;
 
       if (rawMargin < 0 || rawMargin * 2 >= rawSize) {
@@ -1181,9 +1186,12 @@ var AwesomeQRCode;
       var viewportSizeHeightAll = nHeightAll * nCount;
       var sizeWidthAll = viewportSizeWidthAll + 2 * margin;
       var sizeHeightAll = viewportSizeHeightAll + 2 * margin;
-      var [xx, yy] = _htOption.pos || [(sizeWidthAll - size) / 2, (
-        sizeHeightAll -
-        size) / 2];
+      var xx = (sizeWidthAll - size) / 2,
+        yy = (sizeHeightAll - size) / 2
+      if (_htOption.pos) {
+        xx = _htOption.pos[0]
+        yy = _htOption.pos[1]
+      }
 
       _tCanvas.width = sizeWidthAll;
       _tCanvas.height = sizeHeightAll;
@@ -1699,7 +1707,6 @@ var AwesomeQRCode;
     if (this._htOption.text) {
       this.makeCode(this._htOption.text);
     }
-    console.log(document.querySelector())
   };
 
   AwesomeQRCode.prototype.makeCode = function(sText) {
@@ -1778,15 +1785,17 @@ var AwesomeQRCode;
     return rgb;
   }
 })();
-
-(function(window, factory) {
-  if (typeof exports === 'object') {
-    module.exports = factory;
-  } else if (typeof define === 'function' && define.amd) {
-    define(factory);
-  } else {
-    window.eventUtil = factory();
-  }
-})(this, function() {
+module.exports = function() {
   return new AwesomeQRCode();
-});
+};
+// (function(window, factory) {
+//   if (typeof exports === 'object') {
+
+//   } else if (typeof define === 'function' && define.amd) {
+//     define(factory);
+//   } else {
+//     window.eventUtil = factory();
+//   }
+// })(this, function() {
+//   return new AwesomeQRCode();
+// });
