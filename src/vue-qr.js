@@ -1,5 +1,7 @@
 const uuidv4 = require('uuid/v4')
-import { toBoolean } from './util.js'
+import {
+  toBoolean
+} from './util.js'
 import AwesomeQRCode from './awesome-qr'
 export default {
   props: {
@@ -76,7 +78,9 @@ export default {
     bindElement: {
       type: Boolean,
       default: true
-    }
+    },
+    sizes: Array,
+    pos: Array
   },
   name: 'vue-qr',
   data() {
@@ -106,11 +110,11 @@ export default {
           logoImg.onload = function() {
             that.render(bgImg, logoImg)
           }
-          // that.checkIsUrl(that.logoSrc) && (logoImg.crossOrigin = 'anonymous')
+          that.checkIsUrl(that.logoSrc) && (logoImg.crossOrigin = 'anonymous')
           logoImg.src = that.logoSrc
         }
-        // bgImg.crossOrigin = 'anonymous'
-        // this.checkIsUrl(this.bgSrc) && (bgImg.crossOrigin = 'anonymous')
+        bgImg.crossOrigin = 'anonymous'
+        this.checkIsUrl(this.bgSrc) && (bgImg.crossOrigin = 'anonymous')
         bgImg.src = this.bgSrc
         return
       }
@@ -119,7 +123,7 @@ export default {
         img.onload = function() {
           that.render(img)
         }
-        // this.checkIsUrl(this.bgSrc) && (img.crossOrigin = 'anonymous')
+        this.checkIsUrl(this.bgSrc) && (img.crossOrigin = 'anonymous')
         img.src = this.bgSrc
         return
       }
@@ -128,8 +132,8 @@ export default {
         img.onload = function() {
           that.render(undefined, img)
         }
-        // this.checkIsUrl(this.logoSrc) && (img.crossOrigin = 'anonymous')
-        // img.crossOrigin = 'anonymous'
+        this.checkIsUrl(this.logoSrc) && (img.crossOrigin = 'anonymous')
+        img.crossOrigin = 'anonymous'
         img.src = this.logoSrc
         return
       }
@@ -140,18 +144,20 @@ export default {
         that.render()
       }, 0)
     },
-    // checkIsUrl(path) {
-    //   if (path.substring(0, 4).toLowerCase() == 'http') {
-    //     return true
-    //   }
-    //   return false
-    // },
+    checkIsUrl(path) {
+      if (path.substring(0, 4).toLowerCase() == 'http') {
+        return true
+      }
+      return false
+    },
     render(img, logoImg) {
       // console.log(img, logoImg)
       const that = this
       new AwesomeQRCode().create({
         text: that.text,
         size: that.size,
+        sizes: that.sizes,
+        pos: that.pos,
         margin: that.margin,
         colorDark: that.colorDark,
         colorLight: that.colorLight,
